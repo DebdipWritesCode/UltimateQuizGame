@@ -1,0 +1,139 @@
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game h1 {
+    font-size: 60px;
+    margin-left: 40px;
+    font-family: cursive;
+    background: linear-gradient(to bottom, red, rgb(255, 207, 14));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.quiz-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: max-content;
+}
+
+#pokemon-img {
+    width: 475px;
+    height: 475px;
+    margin-right: 150px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+}
+
+#option-1, #option-2, #option-3, #option-4 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid #1603c6;
+    border-radius: 30px;
+    width: 280px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#option-1:hover, #option-2:hover, #option-3:hover, #option-4:hover {
+    background-color: #e0e0e0;
+}
+
+.option-circle h2 {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #1603c6;
+    color: #1603c6;
+    border-radius: 50%;
+}
+
+.options h3 {
+    margin-left: 60px;
+    font-size: 20px;
+    font-family: monospace;
+    color: #1603c6;
+}
+
+.base-circle {
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    border: 0.1px solid rgb(255, 0, 0);
+    width: 80px;
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.first-semi-circle {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(255, 0, 0);
+    left: 0;
+    z-index: 0;
+}
+
+.second-semi-circle {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    right: 0;
+    z-index: 2;
+    transform-origin: left center;
+}
+
+.third-semi-circle {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(255, 0, 0);
+    right: 0;
+    z-index: 3;
+    transform-origin: left center;
+}
+
+.top-circle {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    z-index: 4;
+}
+
+.time-left-text {
+    position: absolute;
+    color: #e50707;
+    z-index: 5;
+}
+
+.time-left-text h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+#next-btn {
+    display: none;
+    padding: 15px;
+    border: none;
+    color: #fff;
+    background-color: #1603c6;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#next-btn:hover {
+    background-color: #0e008a;
+}
