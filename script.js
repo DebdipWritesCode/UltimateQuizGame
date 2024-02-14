@@ -5,9 +5,13 @@ const allOptions = document.querySelectorAll('.choices');
 const correctSound = new Audio('./audio/correct.mp3');
 const incorrectSound = new Audio('./audio/incorrect.mp3');
 const nextBtn = document.querySelector('#next-btn');
+const finishBtn = document.querySelector('#finish-btn');
 const username = document.querySelector('#username');
+const questionNumber = document.querySelector('.questionNum');
+const remTime = document.querySelector('#rem-time');
 let currentScore = 0;
 let correctAnswertoPokemon;
+let questionNum = 1;
 
 let tempStorage =[];
 function pokeFinder() {
@@ -98,7 +102,9 @@ startBtn.addEventListener('click', ()=> {
 
 const optionsParentDiv = document.querySelector('.options');
 optionsParentDiv.addEventListener('click', (e)=> {
-    nextBtn.style.display = "block";
+    nextBtn.style.visibility = "visible";
+    finishBtn.style.visibility = "visible";
+
     if(e.target.closest('.choices')) {
         optionClicked = true;
         allOptions.forEach((option, index) => {
@@ -136,9 +142,9 @@ optionsParentDiv.addEventListener('click', (e)=> {
 });
 
 nextBtn.addEventListener('click', ()=> {
-    nextBtn.style.display = "none";
+    nextBtn.style.visibility = "hidden";
+    finishBtn.style.visibility = "hidden";
     optionClicked = false;
-    const remTime = document.querySelector('#rem-time');
     const secondSemiCircle = document.querySelector('.second-semi-circle');
     const thirdSemiCircle = document.querySelector('.third-semi-circle');
     secondSemiCircle.style.transform = `rotate(0deg)`;
@@ -158,6 +164,37 @@ nextBtn.addEventListener('click', ()=> {
     let correctOption = optionGenerator(newPokemon);
     correctAnswertoPokemon = correctOption;
     const startTime = new Date().getTime();
+
+    questionNum += 1;
+    questionNumber.textContent = `${questionNum}.`;
+
     setTimeout(() => rotateTimer(startTime), 1);
     setTimeout(() => delayedFunction(startTime), 1000);
 });
+
+const gameDiv = document.querySelector('.game');
+const rulesDiv = document.querySelector('.rules');
+const scoreTable = document.querySelector('.score');
+
+startBtn.addEventListener('click', () => {
+        gameDiv.classList.add('active');
+        rulesDiv.classList.remove('active');
+
+});
+
+remTime.style.display = 'none';
+
+finishBtn.addEventListener('click', () => {
+    
+    gameDiv.classList.remove('active');
+    scoreTable.classList.add('active');
+    questionNumber.textContent = '1.';
+    const scoreRow = document.querySelector(`.${username.value}-row`);
+    const scoreCell = scoreRow.querySelector(`.${username.value}-score`);
+    scoreCell.textContent = `${currentScore}`;
+    const updatedScore = document.querySelector(`.${username.value}-score`);
+    updatedScore.textContent = `${currentScore}`;
+    tempStorage = [];
+    questionNum = 1;
+});
+
