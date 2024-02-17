@@ -1,3 +1,70 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(./images/Others/pokemon1.jpg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.rules{
+    color:rgb(199, 177, 177);
+    font-size: 20px;
+    width: 800px;
+    height:500px; 
+    border-radius: 5px;
+    border: solid 10px white;
+    padding: 20px;
+    background-color: transparent;
+    backdrop-filter: blur(25px);
+    position: relative;
+}
+.rules h1{
+    text-align: center;
+    font-size: 50px;
+
+}
+.rules-list{
+    top: 0%;
+    padding: 10px 20px;
+    border-radius: 0 0 10px 10px;
+}
+.rules-list ul{
+    text-align: left;
+    width: 400px;
+    height: 350px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction:column ;
+    gap: 12px;
+    font-size: 17px;
+}
+.start{
+    /* transform: translateX(0%); */
+   transform: translateY(-160%);
+   display: flex;
+   align-content: center;
+   justify-content: center;
+}
+#username{
+font-size: 20px;
+color: rgb(9, 17, 35);
+/* border-radius: 7px; */
+border: none;
+outline: none;
+
+}
+#start-btn{
+    padding: 2px;
+    background-color: #ffa8a8;
+    font-size: 20px;
+    /* border-radius: 7px; */
+    outline: none;
+}
+
 .game {
     display: flex;
     justify-content: center;
